@@ -13,6 +13,12 @@ do_api_base = "https://api.digitalocean.com"
 request_header = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + config_server.do_token}
 app = flask.Flask(__name__)
 
+os.makedirs("letsencrypt-webroot/.well-known/acme-challenge", exist_ok=True)
+
+@app.route('/')
+def root():
+    return "DynDNS server by z3ntu."
+
 
 @app.route('/update_record', methods=['POST'])
 def update_record():
@@ -89,7 +95,7 @@ def update_record():
 
 @app.route('/.well-known/acme-challenge/<path:filename>')
 def letsencrypt_handler(filename):
-    flask.send_from_directory("letsencrypt-webroot/.well-known/acme-challenge", filename)
+    return flask.send_from_directory("letsencrypt-webroot/.well-known/acme-challenge", filename)
 
 
 def is_valid_auth_key(key):
@@ -98,7 +104,6 @@ def is_valid_auth_key(key):
 
 
 if __name__ == '__main__':
-    os.makedirs("letsencrypt-webroot/.well-known/acme-challenge", exist_ok=True)
     if config_server.use_wsgi:
         try:
             app.run()
