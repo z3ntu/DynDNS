@@ -1,8 +1,8 @@
 [Unit]
-Description=Run DynDNS client every hour
+Description=Run DynDNS client every 10 minutes
 
 [Timer]
-OnCalendar=*:0
+OnCalendar=*:0/10
 
 [Install]
 WantedBy=timers.target
