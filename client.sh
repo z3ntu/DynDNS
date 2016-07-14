@@ -11,4 +11,4 @@ echo "Host: $host"
 echo 
 set data "{\"auth_key\": \"$auth_key\", \"host\": \"$host\", \"ip\": \"$ip\"}"
 echo -n "Response: "
-curl -X POST -d "$data" $remote --header "Content-Type:application/json"
+curl -s -X POST -d "$data" $remote --header "Content-Type:application/json"
