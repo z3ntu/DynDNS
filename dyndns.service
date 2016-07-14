@@ -1,0 +1,9 @@
+[Unit]
+Description=DynDNS client by z3ntu
+
+[Service]
+Type=simple
+User=luca
+Group=luca
+WorkingDirectory=/home/luca/DynDNS/
+ExecStart=/home/luca/DynDNS/client.sh

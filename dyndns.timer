@@ -1,0 +1,8 @@
+[Unit]
+Description=Run DynDNS client every hour
+
+[Timer]
+OnCalendar=*:0
+
+[Install]
+WantedBy=timers.target
