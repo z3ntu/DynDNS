@@ -4,4 +4,6 @@ __pycache__/
 
 config_server.py
 
+config.sh
+
 *.swp
