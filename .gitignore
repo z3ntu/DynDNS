@@ -6,6 +6,8 @@ config_server.py
 
 config.sh
 
+auth_keys
+
 letsencrypt-webroot/
 
 *.swp

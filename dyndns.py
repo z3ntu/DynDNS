@@ -45,6 +45,8 @@ def update_record():
         return "Invalid key."
     records_req = requests.get(do_api_base + "/v2/domains/" + config_server.do_domain + "/records",
                                headers=request_header)
+    if records_req.status_code != 200:
+        return "Internal error: " + str(records_req.status_code) + " - " + records_req.reason
     records = json.loads(records_req.text)
     record_id = None
     for record in records.get('domain_records'):
@@ -99,8 +101,10 @@ def letsencrypt_handler(filename):
 
 
 def is_valid_auth_key(key):
-    print(key)  # TODO: Add auth key file verification
-    return True
+    for line in [line.rstrip('\n') for line in open('auth_keys')]:
+        if line == key:
+            return True
+    return False
 
 
 if __name__ == '__main__':
