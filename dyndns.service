@@ -1,8 +1,10 @@
 [Unit]
 Description=DynDNS client by z3ntu
+Requires=network-online.target
+After=network-online.target
 
 [Service]
-Type=simple
+Type=oneshot
 User=luca
 Group=luca
 WorkingDirectory=/home/luca/DynDNS/

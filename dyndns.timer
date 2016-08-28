@@ -2,6 +2,7 @@
 Description=Run DynDNS client every 10 minutes
 
 [Timer]
+OnBootSec=1min
 OnCalendar=*:0/10
 
 [Install]
