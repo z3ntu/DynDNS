@@ -1,3 +1,3 @@
-set remote "http://myhost.com/update_record"
-set auth_key "supersecretkey"
-set host "myhost"
+remote="http://myhost.com/update_record"
+auth_key="supersecretkey"
+host="myhost"

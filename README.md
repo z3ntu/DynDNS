@@ -7,7 +7,7 @@ DynDNS server & client in use with the DigitalOcean DNS.
 * Apache (+ mod_wsgi) (or any other WSGI capable software)
 
 ## Requirements (Client)
-* Fish shell *(you can rewrite the client to any other shell, such as bash, but because I use fish everywhere and I like the syntax, I use it)*
+* bash
 * curl
 
 ## Setup (Server)
